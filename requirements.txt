@@ -1,0 +1,16 @@
+# Requirements generated from the active virtual environment
+# Pinned where available; add or loosen versions as needed for your setup.
+numpy==2.2.6
+scipy==1.15.3
+scikit-learn==1.7.2
+joblib==1.5.3
+threadpoolctl==3.6.0
+
+# Optional / recommended for working with notebooks and plotting
+# (install if you plan to run notebooks locally)
+matplotlib>=3.0
+notebook>=6.0
+jupyterlab>=3.0
+
+# If you need pandas, uncomment and pin a version you use locally
+# pandas==1.5.3
