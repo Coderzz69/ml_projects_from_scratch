@@ -1,59 +1,71 @@
-# Linear Regression Salary Prediction
+# Machine Learning Algorithms
 
-This project demonstrates a simple linear regression model to predict salary based on years of experience. It uses gradient descent to optimize the model parameters.
+This repository contains implementations of various Machine Learning algorithms from scratch, demonstrating the core concepts and mathematics behind them.
 
-## Project Structure
+## Currently Implemented Algorithms
 
-- `Linear_Regression/`: Directory containing the project files.
-  - `LinearRegression.ipynb`: Jupyter notebook implementing the linear regression model.
-  - `Salary_dataset.csv`: Dataset containing years of experience and salary data.
-  - `output.png`: Sample output plot of the regression line.
+1. **Linear Regression** (Salary Prediction)
+2. **Logistic Regression** (Heart Disease Prediction)
 
-## Dataset
+*More ML algorithms are coming soon!*
 
-The dataset `Salary_dataset.csv` contains the following columns:
-- `YearsExperience`: Number of years of experience.
-- `Salary`: Salary corresponding to the experience.
+## 1. Linear Regression (Salary Prediction)
+
+Located in `Linear_Regression/`.
+
+### Description
+A simple linear regression model to predict salary based on years of experience using Gradient Descent.
+
+### Dataset
+- `Linear_Regression/Salary_dataset.csv`
+- **Features**: `YearsExperience`
+- **Target**: `Salary`
+
+### Implementation Details
+The model predicts $y$ (Salary) using the equation:
+$$ y = mx + c $$
+
+Parameters $m$ (slope) and $c$ (intercept) are optimized by minimizing the Mean Squared Error (MSE) through Gradient Descent:
+$$ m = m - \alpha \frac{\partial J}{\partial m} $$
+$$ c = c - \alpha \frac{\partial J}{\partial c} $$
+
+## 2. Logistic Regression (Heart Disease Prediction)
+
+Located in `Logistic_Regression/`.
+
+### Description
+A logistic regression model to predict the presence of heart disease. It uses the sigmoid function to map predictions to probabilities.
+
+### Dataset
+- `Logistic_Regression/Heart_Disease_Prediction.csv`
+- **Features**: Various health metrics (normalized in the notebook).
+- **Target**: Presence of Heart Disease (Binary: 0 or 1).
+
+### Implementation Details
+The model predicts the probability using the Sigmoid function:
+$$ g(z) = \frac{1}{1 + e^{-z}} $$
+where $z = wX + b$.
+
+The cost function used is Binary Cross-Entropy (Log Loss):
+$$ J(w, b) = -\frac{1}{n} \sum [y \log(g(z)) + (1-y) \log(1-g(z))] $$
+
+Weights are updated using Gradient Descent.
 
 ## Prerequisites
 
-To run the notebook, you need the following Python libraries installed:
-- `matplotlib`
+- Python 3.x
 - `numpy`
 - `pandas`
+- `matplotlib`
+- `sklearn` (used for `train_test_split`)
 
-You can install them using pip:
+Install dependencies:
 ```bash
-pip install matplotlib numpy pandas
+pip install numpy pandas matplotlib scikit-learn
 ```
 
 ## Usage
 
-1. Navigate to the `Linear_Regression` directory.
-2. Open the `LinearRegression.ipynb` notebook using Jupyter Notebook or JupyterLab.
-3. Run all the cells to train the model and visualize the results.
-
-## Implementation Details
-
-The linear regression model is implemented from scratch using Gradient Descent.
-
-### Model
-The model predicts salary ($y$) based on years of experience ($x$) using the equation:
-$$ y = mx + c $$
-where:
-- $m$ is the slope (weight).
-- $c$ is the intercept (bias).
-
-### Gradient Descent
-The model parameters ($m$ and $c$) are updated iteratively to minimize the Mean Squared Error (MSE) loss.
-The gradients are calculated as:
-$$ \frac{\partial J}{\partial m} = \frac{-2}{n} \sum (y - (mx + c)) \cdot x $$
-$$ \frac{\partial J}{\partial c} = \frac{-2}{n} \sum (y - (mx + c)) $$
-
-The parameters are updated using the learning rate $\alpha$:
-$$ m = m - \alpha \frac{\partial J}{\partial m} $$
-$$ c = c - \alpha \frac{\partial J}{\partial c} $$
-
-## Results
-
-After training for 10,000 iterations, the model learns the relationship between experience and salary. The notebook produces a plot showing the original data points and the fitted regression line.
+1. Navigate to the algorithm's directory (e.g., `Linear_Regression` or `Logistic_Regression`).
+2. Open the `.ipynb` notebook.
+3. Run the cells to train the models and visualize results.
