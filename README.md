@@ -86,19 +86,20 @@ A decision tree classifier built from scratch to classify Iris flowers into thei
 - **Target:** `Species` (Iris-setosa, Iris-versicolor, Iris-virginica)
 
 ### Implementation Details
-The decision tree is built recursively by selecting splits that maximize Information Gain.
+The decision tree is built recursively by selecting feature splits that maximize **Information Gain**.
 
 **Entropy:**
+
 $$
 E(S) = -\sum_{i} p_i \log_2(p_i)
 $$
 
 **Information Gain:**
+
 $$
-IG(S, A) = E(S) - \sum_v \frac{|S_v|}{|S|} E(S_v)
+IG(S, A) = E(S) - \sum_{v} \frac{|S_v|}{|S|} E(S_v)
 $$
 
----
 
 ## Prerequisites
 
