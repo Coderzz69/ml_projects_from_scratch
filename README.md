@@ -1,80 +1,104 @@
 # Machine Learning Algorithms
 
-This repository contains implementations of various Machine Learning algorithms from scratch, demonstrating the core concepts and mathematics behind them.
+This repository contains implementations of various Machine Learning algorithms from scratch, focusing on the core concepts and mathematical foundations behind each model.
 
 ## Currently Implemented Algorithms
 
-1. **Linear Regression** (Salary Prediction)
-2. **Logistic Regression** (Heart Disease Prediction)
-3. **Decision Tree** (Iris Classification)
+1. **Linear Regression** (Salary Prediction)  
+2. **Logistic Regression** (Heart Disease Prediction)  
+3. **Decision Tree** (Iris Classification)  
 
-*More ML algorithms are coming soon!*
+*More machine learning algorithms will be added soon.*
+
+---
 
 ## 1. Linear Regression (Salary Prediction)
 
 Located in `Linear_Regression/`.
 
 ### Description
-A simple linear regression model to predict salary based on years of experience using Gradient Descent.
+A simple linear regression model that predicts salary based on years of experience using Gradient Descent optimization.
 
 ### Dataset
 - `Linear_Regression/Salary_dataset.csv`
-- **Features**: `YearsExperience`
-- **Target**: `Salary`
+- **Feature:** `YearsExperience`
+- **Target:** `Salary`
 
 ### Implementation Details
-The model predicts $y$ (Salary) using the equation:
-$$ y = mx + c $$
+The model predicts salary using the equation:
 
-Parameters $m$ (slope) and $c$ (intercept) are optimized by minimizing the Mean Squared Error (MSE) through Gradient Descent:
-$$ m = m - \alpha \frac{\partial J}{\partial m} $$
-$$ c = c - \alpha \frac{\partial J}{\partial c} $$
+$$
+y = mx + c
+$$
+
+The parameters \( m \) (slope) and \( c \) (intercept) are optimized by minimizing the Mean Squared Error (MSE) using Gradient Descent:
+
+$$
+m := m - \alpha \frac{\partial J}{\partial m},
+\quad
+c := c - \alpha \frac{\partial J}{\partial c}
+$$
+
+---
 
 ## 2. Logistic Regression (Heart Disease Prediction)
 
 Located in `Logistic_Regression/`.
 
 ### Description
-A logistic regression model to predict the presence of heart disease. It uses the sigmoid function to map predictions to probabilities.
+A logistic regression model that predicts the probability of heart disease using the sigmoid activation function.
 
 ### Dataset
 - `Logistic_Regression/Heart_Disease_Prediction.csv`
-- **Features**: Various health metrics (normalized in the notebook).
-- **Target**: Presence of Heart Disease (Binary: 0 or 1).
+- **Features:** Multiple health-related metrics (normalized)
+- **Target:** Presence of Heart Disease (Binary: 0 or 1)
 
 ### Implementation Details
-The model predicts the probability using the Sigmoid function:
-$$ g(z) = \frac{1}{1 + e^{-z}} $$
-where $z = wX + b$.
+The predicted probability is computed using the sigmoid function:
 
-The cost function used is Binary Cross-Entropy (Log Loss):
-$$ J(w, b) = -\frac{1}{n} \sum [y \log(g(z)) + (1-y) \log(1-g(z))] $$
+$$
+g(z) = \frac{1}{1 + e^{-z}}, \quad \text{where } z = wX + b
+$$
 
-Weights are updated using Gradient Descent.
+The loss function used is Binary Cross-Entropy (Log Loss):
+
+$$
+J(w, b) = -\frac{1}{n} \sum_{i=1}^{n}
+\left[
+y_i \log(g(z_i)) + (1 - y_i)\log(1 - g(z_i))
+\right]
+$$
+
+Model parameters are updated using Gradient Descent.
+
+---
 
 ## 3. Decision Tree (Iris Classification)
 
 Located in `Decision_Tree/`.
 
 ### Description
-A decision tree classifier built from scratch to classify Iris flowers into species. It splits data based on features to maximize information gain.
+A decision tree classifier built from scratch to classify Iris flowers into their respective species.
 
 ### Dataset
 - `Decision_Tree/Iris.csv`
-- **Features**: `SepalLengthCm`, `SepalWidthCm`, `PetalLengthCm`, `PetalWidthCm`
-- **Target**: `Species` (Iris-setosa, Iris-versicolor, Iris-virginica)
+- **Features:** `SepalLengthCm`, `SepalWidthCm`, `PetalLengthCm`, `PetalWidthCm`
+- **Target:** `Species` (Iris-setosa, Iris-versicolor, Iris-virginica)
 
 ### Implementation Details
-The model builds a tree by recursively splitting the dataset:
-- **Splitting Criterion**: Information Gain (using Entropy).
-- **Node**: Represents a decision based on a feature and threshold.
-- **Leaf**: Represents the final class prediction.
+The decision tree is built recursively by selecting splits that maximize Information Gain.
 
-Entropy is calculated as:
-$$ E(S) = \sum -p_i \log_2(p_i) $$
+**Entropy:**
+$$
+E(S) = -\sum_{i} p_i \log_2(p_i)
+$$
 
-Information Gain:
-$$ IG(S, A) = E(S) - \sum \frac{|S_v|}{|S|} E(S_v) $$
+**Information Gain:**
+$$
+IG(S, A) = E(S) - \sum_v \frac{|S_v|}{|S|} E(S_v)
+$$
+
+---
 
 ## Prerequisites
 
@@ -82,15 +106,9 @@ $$ IG(S, A) = E(S) - \sum \frac{|S_v|}{|S|} E(S_v) $$
 - `numpy`
 - `pandas`
 - `matplotlib`
-- `sklearn` (used for `train_test_split`)
+- `scikit-learn` (used for `train_test_split`)
 
 Install dependencies:
+
 ```bash
 pip install numpy pandas matplotlib scikit-learn
-```
-
-## Usage
-
-1. Navigate to the algorithm's directory (e.g., `Linear_Regression`, `Logistic_Regression`, or `Decision_Tree`).
-2. Open the `.ipynb` notebook.
-3. Run the cells to train the models and visualize results.
