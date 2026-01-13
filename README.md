@@ -6,6 +6,7 @@ This repository contains implementations of various Machine Learning algorithms 
 
 1. **Linear Regression** (Salary Prediction)
 2. **Logistic Regression** (Heart Disease Prediction)
+3. **Decision Tree** (Iris Classification)
 
 *More ML algorithms are coming soon!*
 
@@ -51,6 +52,30 @@ $$ J(w, b) = -\frac{1}{n} \sum [y \log(g(z)) + (1-y) \log(1-g(z))] $$
 
 Weights are updated using Gradient Descent.
 
+## 3. Decision Tree (Iris Classification)
+
+Located in `Decision_Tree/`.
+
+### Description
+A decision tree classifier built from scratch to classify Iris flowers into species. It splits data based on features to maximize information gain.
+
+### Dataset
+- `Decision_Tree/Iris.csv`
+- **Features**: `SepalLengthCm`, `SepalWidthCm`, `PetalLengthCm`, `PetalWidthCm`
+- **Target**: `Species` (Iris-setosa, Iris-versicolor, Iris-virginica)
+
+### Implementation Details
+The model builds a tree by recursively splitting the dataset:
+- **Splitting Criterion**: Information Gain (using Entropy).
+- **Node**: Represents a decision based on a feature and threshold.
+- **Leaf**: Represents the final class prediction.
+
+Entropy is calculated as:
+$$ E(S) = \sum -p_i \log_2(p_i) $$
+
+Information Gain:
+$$ IG(S, A) = E(S) - \sum \frac{|S_v|}{|S|} E(S_v) $$
+
 ## Prerequisites
 
 - Python 3.x
@@ -66,6 +91,6 @@ pip install numpy pandas matplotlib scikit-learn
 
 ## Usage
 
-1. Navigate to the algorithm's directory (e.g., `Linear_Regression` or `Logistic_Regression`).
+1. Navigate to the algorithm's directory (e.g., `Linear_Regression`, `Logistic_Regression`, or `Decision_Tree`).
 2. Open the `.ipynb` notebook.
 3. Run the cells to train the models and visualize results.
