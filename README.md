@@ -122,10 +122,13 @@ The model uses bootstrap aggregating (bagging) to create multiple decision trees
 Randomly sampling with replacement to train each tree.
 
 **Prediction:**
+
 $$
 \hat{y} = \text{mode}(\{h_1(x), h_2(x), \dots, h_n(x)\})
 $$
-Where \( h_i(x) \) is the prediction of the \( i \)-th tree.
+
+where \( h_i \) represents the output of the \( i \)-th base learner.
+
 
 
 ## Prerequisites
