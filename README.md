@@ -8,6 +8,7 @@ This repository contains implementations of various Machine Learning algorithms 
 2. **Logistic Regression** (Heart Disease Prediction)  
 3. **Decision Tree** (Iris Classification)  
 4. **Random Forest** (Breast Cancer Classification)
+5. **K-Nearest Neighbours** (Breast Cancer Classification)
 
 *More machine learning algorithms will be added soon.*
 
@@ -129,6 +130,38 @@ $$
 
 where \( h_i \) represents the output of the \( i \)-th base learner.
 
+---
+
+## 5. K-Nearest Neighbours (Breast Cancer Classification)
+
+Located in `K_Nearest_Neighbours/`.
+
+### Description
+A K-Nearest Neighbours (KNN) classifier that classifies breast cancer cases as malignant or benign based on the similarity to labeled examples.
+
+### Dataset
+- `K_Nearest_Neighbours/data.csv` (Breast Cancer Wisconsin Diagnostic Dataset)
+- **Features:** Computed from a digitized image of a fine needle aspirate (FNA) of a breast mass (e.g., radius, texture, perimeter).
+- **Target:** `diagnosis` (M = Malignant, B = Benign)
+
+### Implementation Details
+The algorithm classifies new data points based on the majority class of their \( k \) nearest neighbors.
+
+**Euclidean Distance:**
+Used to measure similarity between data points:
+
+$$
+d(x, y) = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}
+$$
+
+**Prediction:**
+The class is determined by a majority vote of the neighbors:
+
+$$
+\hat{y} = \text{mode}(\{y_1, y_2, \dots, y_k\})
+$$
+
+The project includes both a from-scratch implementation in `KNN.ipynb` and an implementation using `scikit-learn` in `knn.py`.
 
 
 ## Prerequisites
@@ -138,7 +171,7 @@ where \( h_i \) represents the output of the \( i \)-th base learner.
 - `pandas`
 - `matplotlib`
 - `seaborn`
-- `scikit-learn` (used for `train_test_split`)
+- `scikit-learn` (used for `train_test_split` and dataset loading)
 
 Install dependencies:
 
