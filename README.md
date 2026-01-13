@@ -7,6 +7,7 @@ This repository contains implementations of various Machine Learning algorithms 
 1. **Linear Regression** (Salary Prediction)  
 2. **Logistic Regression** (Heart Disease Prediction)  
 3. **Decision Tree** (Iris Classification)  
+4. **Random Forest** (Breast Cancer Classification)
 
 *More machine learning algorithms will be added soon.*
 
@@ -100,6 +101,32 @@ $$
 IG(S, A) = E(S) - \sum_{v} \frac{|S_v|}{|S|} E(S_v)
 $$
 
+---
+
+## 4. Random Forest (Breast Cancer Classification)
+
+Located in `Random_Forest/`.
+
+### Description
+An ensemble learning method using multiple Decision Trees to improve classification accuracy and control over-fitting.
+
+### Dataset
+- Breast Cancer Wisconsin (Diagnostic) Dataset (loaded from `sklearn.datasets`)
+- **Features:** Computed from a digitized image of a fine needle aspirate (FNA) of a breast mass.
+- **Target:** Cancer Diagnosis (Malignant or Benign)
+
+### Implementation Details
+The model uses bootstrap aggregating (bagging) to create multiple decision trees on random subsets of data and features. The final prediction is determined by majority voting.
+
+**Bootstrap Aggregating:**
+Randomly sampling with replacement to train each tree.
+
+**Prediction:**
+$$
+\hat{y} = \text{mode}(\{h_1(x), h_2(x), \dots, h_n(x)\})
+$$
+Where \( h_i(x) \) is the prediction of the \( i \)-th tree.
+
 
 ## Prerequisites
 
@@ -107,9 +134,11 @@ $$
 - `numpy`
 - `pandas`
 - `matplotlib`
+- `seaborn`
 - `scikit-learn` (used for `train_test_split`)
 
 Install dependencies:
 
 ```bash
-pip install numpy pandas matplotlib scikit-learn
+pip install numpy pandas matplotlib seaborn scikit-learn
+```
